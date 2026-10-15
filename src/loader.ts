@@ -2,7 +2,7 @@ import { print as graphqlPrint } from "graphql/language/printer";
 import { parse as graphqlParse } from "graphql/language/parser";
 import { validate as graphqlValidate } from "graphql/validation/validate";
 import { join, dirname } from "path";
-import { Stats } from "fs";
+import { Stats, stat as fsStat } from "fs";
 import { removeDuplicateFragments, removeUnusedFragments } from "./transforms";
 
 import { LoaderContext } from "webpack";
@@ -50,8 +50,11 @@ async function stat(
   loader: LoaderContext<GraphQLLoaderOptions>,
   filePath: string
 ): Promise<Stats> {
+  // turbopack does not support loader.fs.stat.
+  const statFn = loader.fs.stat || fsStat;
+
   return new Promise<Stats>((resolve, reject) => {
-    loader.fs.stat(filePath, (err, result) => {
+    statFn(filePath, (err, result) => {
       if (err || result === undefined) {
         reject(err);
       } else {
