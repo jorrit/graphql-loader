@@ -1,35 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`graphql-loader fail-invalid-document 1`] = `
-Array [
+[
   "Module build failed (from ../../../src/loader.ts):
-GraphQLError: Syntax Error: Expected Name, found \\"[\\".",
+GraphQLError: Syntax Error: Expected Name, found "[".",
 ]
 `;
 
 exports[`graphql-loader fail-invalid-field 1`] = `
-Array [
+[
   "Module Error (from ../../../src/loader.ts):
-Cannot query field \\"q\\" on type \\"Y\\". Did you mean \\"z\\"?",
+Cannot query field "q" on type "Y". Did you mean "z"?",
 ]
 `;
 
 exports[`graphql-loader fail-invalid-schema-path 1`] = `
-Array [
+[
   "Module build failed (from ../../../src/loader.ts):
 Error: Could not find schema file './bad.json' from any parent of '(path-removed)'",
 ]
 `;
 
 exports[`graphql-loader fail-missing-fragment 1`] = `
-Array [
+[
   "Module Error (from ../../../src/loader.ts):
-Unknown fragment \\"Q\\".",
+Unknown fragment "Q".",
 ]
 `;
 
 exports[`graphql-loader fail-missing-schema-path 1`] = `
-Array [
+[
   "Module build failed (from ../../../src/loader.ts):
 Error: schema option must be passed if validate is true",
 ]
@@ -109,7 +109,7 @@ exports[`graphql-loader simple 1`] = `
 `;
 
 exports[`graphql-loader two-loaders 1`] = `
-Object {
+{
   "a": "query X {
   y {
     foo

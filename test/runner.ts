@@ -1,7 +1,6 @@
 import * as webpack from 'webpack';
 import { join } from 'path';
-import MemoryFileSystem = require('memory-fs');
-import { StatsError } from 'webpack';
+import { Volume, createFsFromVolume } from 'memfs';
 
 const loaderPath = require.resolve('../src/loader');
 
@@ -26,7 +25,7 @@ export function runFixture(fixtureName: string): Promise<{}> {
   ));
 
   return new Promise((resolve, reject) => {
-    const fs = new MemoryFileSystem();
+    const fs = createFsFromVolume(new Volume());
 
     const compiler = webpack({
       module: {
@@ -46,7 +45,7 @@ export function runFixture(fixtureName: string): Promise<{}> {
       ...config,
     });
 
-    compiler.outputFileSystem = fs;
+    compiler.outputFileSystem = fs as webpack.OutputFileSystem;
 
     compiler.run((err, stats) => {
       if (err || stats === undefined) {
