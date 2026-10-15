@@ -13,7 +13,7 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [14.x, 16.x, 18.x]
+                node-version: [22.x, 24.x, 26.x]
 
         steps:
             - uses: actions/checkout@v3
@@ -22,4 +22,5 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: yarn
+            - run: yarn lint
             - run: yarn test

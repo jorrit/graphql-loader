@@ -18,6 +18,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "lint": "prettier -c src test",
     "build": "tsc",
     "prepare": "npm run build",
     "test": "jest"
