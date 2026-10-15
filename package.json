@@ -1,6 +1,6 @@
 {
   "name": "@jorritschippers/webpack-graphql-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "webpack graphql loader",
   "main": "./lib/loader.js",
   "types": "./lib/loader.d.ts",
