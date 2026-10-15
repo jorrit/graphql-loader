@@ -4,65 +4,68 @@
     "queryType": {
       "name": "Query"
     },
-    "types": [{
+    "types": [
+      {
         "kind": "SCALAR",
         "name": "string",
         "description": "",
         "interfaces": null,
         "possibleTypes": null
-      },{
-      "description": "",
-      "enumValues": [],
-      "fields": [
-        {
-          "args": [],
-          "deprecationReason": "",
-          "description": "",
-          "isDeprecated": false,
-          "name": "bar",
-          "type": {
-            "kind": "NON_NULL",
-            "name": "",
-            "ofType": {
-              "kind": "SCALAR",
-              "name": "string",
-              "ofType": null
+      },
+      {
+        "description": "",
+        "enumValues": [],
+        "fields": [
+          {
+            "args": [],
+            "deprecationReason": "",
+            "description": "",
+            "isDeprecated": false,
+            "name": "bar",
+            "type": {
+              "kind": "NON_NULL",
+              "name": "",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "string",
+                "ofType": null
+              }
             }
           }
-        }
-      ],
-      "inputFields": [],
-      "interfaces": [],
-      "kind": "OBJECT",
-      "name": "Y",
-      "possibleTypes": []
-    },
-    {
-      "description": "",
-      "enumValues": [],
-      "fields": [
-        {
-          "args": [],
-          "deprecationReason": "",
-          "description": "",
-          "isDeprecated": false,
-          "name": "y",
-          "type": {
-            "kind": "NON_NULL",
-            "name": "",
-            "ofType": {
-              "kind": "OBJECT",
-              "name": "Y",
-              "ofType": null
+        ],
+        "inputFields": [],
+        "interfaces": [],
+        "kind": "OBJECT",
+        "name": "Y",
+        "possibleTypes": []
+      },
+      {
+        "description": "",
+        "enumValues": [],
+        "fields": [
+          {
+            "args": [],
+            "deprecationReason": "",
+            "description": "",
+            "isDeprecated": false,
+            "name": "y",
+            "type": {
+              "kind": "NON_NULL",
+              "name": "",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Y",
+                "ofType": null
+              }
             }
           }
-        }
-      ],
-      "inputFields": [],
-      "interfaces": [],
-      "kind": "OBJECT",
-      "name": "Query",
-      "possibleTypes": []
-    }]
+        ],
+        "inputFields": [],
+        "interfaces": [],
+        "kind": "OBJECT",
+        "name": "Query",
+        "possibleTypes": []
+      }
+    ]
   }
 }

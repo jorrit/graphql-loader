@@ -33,7 +33,7 @@ interface GraphQLLoaderOptions {
 
 async function readFile(
   loader: LoaderContext<GraphQLLoaderOptions>,
-  filePath: string
+  filePath: string,
 ): Promise<string> {
   return new Promise<string>((resolve, reject) => {
     loader.fs.readFile(filePath, (err, result) => {
@@ -48,7 +48,7 @@ async function readFile(
 
 async function stat(
   loader: LoaderContext<GraphQLLoaderOptions>,
-  filePath: string
+  filePath: string,
 ): Promise<Stats> {
   // turbopack does not support loader.fs.stat.
   const statFn = loader.fs.stat || fsStat;
@@ -69,7 +69,7 @@ async function extractImports(
   loader: LoaderContext<GraphQLLoaderOptions>,
   resolveContext: string,
   source: string,
-  document: DocumentNode
+  document: DocumentNode,
 ) {
   const lines = source.split(/(\r\n|\r|\n)/);
 
@@ -101,7 +101,7 @@ async function extractImports(
             resolve(result);
           }
         });
-      })
+      }),
     );
   });
 
@@ -110,13 +110,13 @@ async function extractImports(
     files.map(async (filePath) => [
       dirname(filePath),
       await readFile(loader, filePath),
-    ])
+    ]),
   );
 
   const nodes = await Promise.all(
     contents.map(([fileContext, content]) =>
-      loadSource(loader, fileContext, content)
-    )
+      loadSource(loader, fileContext, content),
+    ),
   );
   const fragmentDefinitions = nodes.reduce((defs, node) => {
     defs.push(...node.definitions);
@@ -132,7 +132,7 @@ async function extractImports(
 async function loadSource(
   loader: LoaderContext<GraphQLLoaderOptions>,
   resolveContext: string,
-  source: string
+  source: string,
 ) {
   let document: DocumentNode = graphqlParse(new Source(source, "GraphQL/file"));
   document = await extractImports(loader, resolveContext, source, document);
@@ -141,7 +141,7 @@ async function loadSource(
 
 async function loadSchema(
   loader: LoaderContext<GraphQLLoaderOptions>,
-  options: GraphQLLoaderOptions
+  options: GraphQLLoaderOptions,
 ): Promise<GraphQLSchema> {
   let schema = null;
 
@@ -149,7 +149,7 @@ async function loadSchema(
     const schemaPath = await findFileInTree(
       loader,
       loader.context,
-      options.schema
+      options.schema,
     );
     loader.addDependency(schemaPath);
 
@@ -207,7 +207,7 @@ async function loadOptions(loader: LoaderContext<GraphQLLoaderOptions>) {
 async function findFileInTree(
   loader: LoaderContext<GraphQLLoaderOptions>,
   context: string,
-  schemaPath: string
+  schemaPath: string,
 ) {
   let currentContext = context;
   while (true) {
@@ -221,7 +221,7 @@ async function findFileInTree(
     if (parent === currentContext) {
       // Reached root of the fs, but we still haven't found anything.
       throw new Error(
-        `Could not find schema file '${schemaPath}' from any parent of '${context}'`
+        `Could not find schema file '${schemaPath}' from any parent of '${context}'`,
       );
     }
     currentContext = parent;
@@ -230,7 +230,7 @@ async function findFileInTree(
 
 export default async function loader(
   this: LoaderContext<GraphQLLoaderOptions>,
-  source: string
+  source: string,
 ) {
   this.cacheable();
   const done = this.async();

@@ -1,6 +1,4 @@
-fragment Z  on  Z  {   
- # comment
+fragment Z on Z {
+  # comment
   z
-
 }
-

@@ -1,6 +1,6 @@
 import { runFixture, TestRunError } from "./runner";
 
-describe("graphql-loader", function() {
+describe("graphql-loader", function () {
   [
     "simple",
     "fragments",
@@ -15,8 +15,8 @@ describe("graphql-loader", function() {
     "issue-1-import-from-fragment",
     "two-loaders",
     "minify",
-  ].forEach(fixturePath =>
-    it(fixturePath, async function() {
+  ].forEach((fixturePath) =>
+    it(fixturePath, async function () {
       try {
         const document = await runFixture(fixturePath);
         expect(document).toMatchSnapshot();

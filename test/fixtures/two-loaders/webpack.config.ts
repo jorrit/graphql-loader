@@ -11,7 +11,7 @@ module.exports = {
             loader: require.resolve("../../../src/loader"),
             options: {
               validate: true,
-              schema: "./schema.a.json"
+              schema: "./schema.a.json",
             },
           },
         ],
@@ -24,7 +24,7 @@ module.exports = {
             loader: require.resolve("../../../src/loader"),
             options: {
               validate: true,
-              schema: "./schema.b.json"
+              schema: "./schema.b.json",
             },
           },
         ],

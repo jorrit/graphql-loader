@@ -54,7 +54,7 @@ export function removeUnusedFragments(document: DocumentNode): DocumentNode {
     ...document,
     definitions: document.definitions.filter(
       (def) =>
-        def.kind !== "FragmentDefinition" || usedFragments.has(def.name.value)
+        def.kind !== "FragmentDefinition" || usedFragments.has(def.name.value),
     ),
   };
 
