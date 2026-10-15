@@ -49,7 +49,7 @@ module.exports = {
         test: /\.graphql?$/,
         use: [
           {
-            loader: 'webpack-graphql-loader',
+            loader: '@jorritschippers/webpack-graphql-loader',
             options: {
               // validate: true,
               // schema: "./path/to/schema.json",
